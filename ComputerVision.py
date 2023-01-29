@@ -14,10 +14,10 @@ trainImages, testImages = trainImages / 255.0, testImages / 255.0
 classNames = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
 
 # TEST
-ImgIndex = 1
-plt.imshow(trainImages[ImgIndex], cmap=plt.cm.binary)
-plt.xlabel(classNames[trainLabels[ImgIndex][0]])
-plt.show()
+#ImgIndex = 1
+#plt.imshow(trainImages[ImgIndex], cmap=plt.cm.binary)
+#plt.xlabel(classNames[trainLabels[ImgIndex][0]])
+#plt.show()
 
 # Transformiert das Bild um es mehrfach nutzen zu können ohne Dopplungen in kauf nehmen zu müssen
 
@@ -31,4 +31,16 @@ datagen = ImageDataGenerator(
     fill_mode="nearest"
 )
 
-# Bild zum Transformieren aussuchen
+# Aufbau der konvolutionellen Basis des Models
+model = models.Sequential()
+model.add(layers.Conv2D(32, (3, 3), activation="relu", input_shape=(32, 32, 3)))
+model.add(layers.MaxPooling2D((2, 2)))
+model.add(layers.Conv2D(64, (3, 3), activation="relu"))
+model.add(layers.MaxPooling2D((2, 2)))
+model.add(layers.Conv2D(64, (3, 3), activation="relu"))
+
+# Hinzufügen der dichten Schichten
+
+model.add(layers.Flatten())                     # Konvertiert die Pixelwertmatix in ein eindimensonales numpy Array
+model.add(layers.Dense(64, activation="relu"))  # Siehe neuralNetwork l.19
+model.add(layers.Dense(10))                     # Siehe neuralNetwork l.20
