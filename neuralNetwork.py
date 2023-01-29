@@ -46,8 +46,8 @@ while using:
   else:
     num = int(num)
     print(classNames[np.argmax(predictions[num])])
-    plt.figure()
-    plt.imshow(testImages[num])
-    plt.colorbar()
-    plt.grid(False)
-    plt.show()
+    plt.figure()                  # Zeigen des Bildes
+    plt.imshow(testImages[num])   # "
+    plt.colorbar()                # "
+    plt.grid(False)               # "
+    plt.show()                    # "
