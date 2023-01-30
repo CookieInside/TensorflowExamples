@@ -1,4 +1,3 @@
-<<<<<<< HEAD:neuralNetwork.py
 import tensorflow as tf
 from tensorflow import keras
 import numpy as np
@@ -106,4 +105,3 @@ while using:
     plt.colorbar()                # "
     plt.grid(False)               # "
     plt.show()                    # "
->>>>>>> 2621f2ff0ce54ed5d70ba7bc2979561c70db34b3:NeuralNetwork.py
