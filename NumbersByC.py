@@ -26,7 +26,7 @@ model.compile(
 # Zuschneiden / Trainieren des Models auf den Datensatz
 model.fit(trainImages, trainLabels, epochs=10)
 
-model.save("numernErkennen.h5")
+model.save("nummernErkennen.h5")
 
 # Model Evaluation (Test-Datensatz)
 testLoss, testAcc = model.evaluate(testImages, testLabels, verbose=1)
