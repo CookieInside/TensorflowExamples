@@ -10,7 +10,7 @@ numberMnist = keras.datasets.mnist
 
 classNames = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 
-model = tf.keras.models.load_model("nummernErkennen.h5")
+model = tf.keras.models.load_model("./models/nummernErkennen.h5")
 
 # Model Evaluation (Test-Datensatz)
 testLoss, testAcc = model.evaluate(testImages, testLabels, verbose=1)
