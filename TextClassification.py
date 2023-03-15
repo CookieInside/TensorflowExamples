@@ -63,9 +63,9 @@ def predict(text):
 model = tf.keras.models.load_model("./models/textClassification.h5")
 
 using = True
-print("input stop to stop testing, the higher the output the better the review")
+print("input 'stop' to stop testing, the output number means positive if it is greater than .5 and negative if it is smaller")
 while using:
-    text = input("Input Text you want to test: ")
+    text = input("Input your movie review: ")
     if(text == "stop"):
         using = False
     else:
