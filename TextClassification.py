@@ -48,7 +48,7 @@ def trainModel():
     results = model.evaluate(testData, testLabels) # Model anhand des Test-Datensatzen testen
     print(results) # Test-Ergebnisse ausgeben
     model.save("./models/textClassification.h5")
-#trainModel()
+trainModel()
 
 def predict(text):
     encoded = encodeText(text) # text kodieren
