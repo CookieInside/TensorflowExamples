@@ -10,7 +10,7 @@ VOCAB_SIZE = 88584
 MAX_LENGTH = 250 # Anzahl der Wörter pro Text, weitere Wörter werden entfernt und bei einem zu korzen Text werden Wörter mit dem Wert 0 eingefügt
 BATCH_SIZE = 64
 
-# Text kodierer
+# Text Kodierer
 wordIndex = imdb.get_word_index() # Liste aller Wörter die im Training genutzt worden
 
 def encodeText(text):
@@ -18,7 +18,7 @@ def encodeText(text):
     tokens = [wordIndex[word] if word in wordIndex else 0 for word in tokens] # Wörter durch Nummern ersetzten
     return pad_sequences([tokens], MAX_LENGTH)[0]
 
-# Text dekodierer
+# Text Dekodierer
 reverseWordIndex = {value: key for (key, value) in wordIndex.items()} # eine Map mit Nummer und entsprechenden Wort
 
 def decodeInt(integers):
