@@ -48,14 +48,17 @@ def trainModel():
     results = model.evaluate(testData, testLabels) # Model anhand des Test-Datensatzen testen
     print(results) # Test-Ergebnisse ausgeben
     model.save("./models/textClassification.h5")
-trainModel()
+#trainModel()
 
 def predict(text):
     encoded = encodeText(text) # text kodieren
     pred = np.zeros((1,250)) # Basis Array erstellen
     pred[0] = encoded # Text in Array einfügen
     result = model.predict(pred) # Probe mit Model vorhersagen lassen
-    print(result[0][0])
+    if result[0][0] > 0.5:
+        print(f"positive ({result[0][0]})")
+    else:
+        print(f"negative ({result[0][0]})")
 
 model = tf.keras.models.load_model("./models/textClassification.h5")
 
