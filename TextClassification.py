@@ -41,14 +41,13 @@ def trainModel():
     tf.keras.layers.LSTM(32),
     tf.keras.layers.Dense(1, activation="sigmoid")
     ])
-    model.save("./models/textClassification.h5")
 
     model.compile(loss="binary_crossentropy", optimizer="rmsprop", metrics=["acc"]) # Trainigsfunktionen auswählen
     history = model.fit(trainData, trainLabels, epochs=10, validation_split=0.2, batch_size=BATCH_SIZE) # Trainiren des Models
 
     results = model.evaluate(testData, testLabels) # Model anhand des Test-Datensatzen testen
     print(results) # Test-Ergebnisse ausgeben
-
+    model.save("./models/textClassification.h5")
 #trainModel()
 
 def predict(text):
