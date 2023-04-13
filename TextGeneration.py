@@ -16,7 +16,7 @@ char2idx = {u:i for i, u in enumerate(vocab)} # Erstellt ein Map mit Buchstaben 
 idx2char = np.array(vocab) # Erstellt ein Array mit allem Buchstaben des Textes (benötigt um von Index zum Buchstaben zu kommen)
 
 def textToInt(text):
-    return ap.array([char2idx[c] for c in text]) # Gibt ein Array mit den Indexen der Buchstaben eines Textes zurück
+    return np.array([char2idx[c] for c in text]) # Gibt ein Array mit den Indexen der Buchstaben eines Textes zurück
 
 def intToText(ints):
     try:
@@ -26,3 +26,10 @@ def intToText(ints):
     return "".join(idx2char[ints]) # Buchstaben einzeln anhägen und dann als String zurückgeben
 
 textAsInt = textToInt(text)
+
+seqLength = 100 # Länge einer Trainings-Sequenz
+examplesPerEpoch = len(text)//(seqLength+1) # Beispiele pro Epoche: die Länge des Textes geteilt durch die Länge einer Trainings-Sequenz plus eins
+
+charDataset = tf.data.Dataset.from_tensor_slices(textAsInt) # Wandelt String Dataset zu Tensorflow Dataset um
+
+sequences = charDataset.dataset.batch(seqLength+1, drop_remainder=True)
