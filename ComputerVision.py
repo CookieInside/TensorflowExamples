@@ -1,8 +1,8 @@
 import tensorflow as tf
 import scipy
 import numpy as np
-from tensorflow.keras import datasets, layers, models
-from tensorflow.keras.utils import img_to_array
+from keras import datasets, layers, models
+from keras.utils import img_to_array
 import matplotlib.pyplot as plt
 from keras.preprocessing import image
 from keras.preprocessing.image import ImageDataGenerator
@@ -17,10 +17,10 @@ trainImages, testImages = trainImages / 255.0, testImages / 255.0
 classNames = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
 
 # TEST
-#ImgIndex = 1
-#plt.imshow(trainImages[ImgIndex], cmap=plt.cm.binary)
-#plt.xlabel(classNames[trainLabels[ImgIndex][0]])
-#plt.show()
+ImgIndex = 1
+plt.imshow(trainImages[ImgIndex], cmap=plt.cm.binary)
+plt.xlabel(classNames[trainLabels[ImgIndex][0]])
+plt.show()
 
 # Transformiert das Bild um es mehrfach nutzen zu koennen ohne Dopplungen in kauf nehmen zu muessen
 
